@@ -1,59 +1,50 @@
 /* -----------------------------------------------------
-   FONT IMPORTS & GLOBALS
-   ----------------------------------------------------- */
-/* Keep existing header font import:
-   @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap'); */
-
-/* If you prefer to import Orbitron here, you could:
-   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-*/
-
+   GLOBAL FONTS & RESET
+----------------------------------------------------- */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
   
-  /* -----------------------------------------------------
-     BODY & COLORS
-     -----------------------------------------------------
-     Using your color palette:
-  
-     #00060e (dark background)
-     #9a9f17 (muted neon green)
-     #fee801 (bright neon yellow)
-     #54c1e6 (neon sky blue)
-     #39c4b6 (teal)
+  /* Using:
+     #467fa1,
+     #54295c,
+     #061f2b,
+     #1e0f1d,
+     #5e0b0b
   */
   body {
-    background-color: #00060e;
-    font-family: 'Orbitron', sans-serif; /* For main body text */
-    color: #fee801; /* bright neon yellow for default text color */
+    font-family: 'Source Sans Pro', sans-serif; /* main body font */
+    background-color: #061f2b; /* main dark background */
+    color: #467fa1;           /* default text color */
     margin: 0;
+  }
+  
+  /* Large headings in Poppins */
+  h1, h2, h3, .name {
+    font-family: 'Poppins', sans-serif;
   }
   
   /* -----------------------------------------------------
      HEADER
-     -----------------------------------------------------
-     Use 'Atkinson Hyperlegible Mono' only for the header.
-     Different background (#9a9f17).
-  */
+  ----------------------------------------------------- */
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 12px 20px;
-    background: #9a9f17;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  
-    font-family: 'Atkinson Hyperlegible Mono', monospace; /* override body font */
-    color: #fee801;
+    background: #54295c;  /* deep purple tone */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
   }
   
   .header-left {
     flex: 1;
     text-align: left;
-    font-size: 22px;
+  }
+  .header-left .name {
+    font-size: 1.4rem;
+    color: #ffffff;
     font-weight: 700;
   }
   
@@ -61,7 +52,6 @@
     flex: 1;
     text-align: center;
   }
-  
   .header-center img {
     width: 40px;
     height: 40px;
@@ -72,196 +62,253 @@
     text-align: right;
   }
   
-  /* -----------------------------------------------------
-     NAV LINKS - fancy hover effect
-     -----------------------------------------------------
-     Incorporating the snippet style you mentioned 
-     (with modifications to match our palette).
+  /* 
+     Desktop Nav
+     We’ll keep it simpler, just a horizontal list
+     with a subtle hover effect. 
   */
   .nav-links {
-    display: inline-flex;
     list-style: none;
+    display: inline-flex;
+    gap: 1.5rem;
     padding: 0;
     margin: 0;
-    position: relative;
   }
   
-  .nav-links li {
-    margin: 0 15px;
-    list-style: none;
-    position: relative;
-  }
-  
-  /* 
-     We'll replicate your posted snippet:
-     - Using :before and :after for the border / background
-     - Transition: color / background
-  */
   .nav-links li a {
-    position: relative;
-    display: block;
-    text-transform: uppercase;
-    padding: 10px 20px;
     text-decoration: none;
-    color: #00060e;        /* use the dark background color for text to stand out against header */
-    font-size: 16px;
+    color: #ffffff;
     font-weight: 600;
-    transition: 0.5s;
-    z-index: 1;
+    position: relative;
+    transition: 0.3s ease;
   }
   
-  /* top and bottom border lines on hover */
-  .nav-links li a:before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    border-top: 2px solid #00060e;
-    border-bottom: 2px solid #00060e;
-    transform: scaleY(2);
-    opacity: 0;
-    transition: 0.3s;
-  }
-  
-  .nav-links li a:after {
-    content: '';
-    position: absolute;
-    top: 2px;  /* keep in sync with border thickness above */
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00060e;
-    transform: scaleY(0);
-    opacity: 0;
-    transition: 0.3s;
-    z-index: -1;
-  }
-  
-  /* 
-     On hover:
-     - text color = #fee801 (bright neon yellow)
-     - make before/after visible
-  */
   .nav-links li a:hover {
-    color: #fee801;
-  }
-  
-  .nav-links li a:hover:before {
-    transform: scaleY(1);
-    opacity: 1;
-  }
-  
-  .nav-links li a:hover:after {
-    transform: scaleY(1);
-    opacity: 1;
-  }
-  
-  /* -----------------------------------------------------
-     MOBILE MENU
-     -----------------------------------------------------
-     Animate dropdown: transform + opacity
-  */
-  .mobile-menu {
-    display: none;
-    flex-direction: column;
-    background: #9a9f17;
-    position: absolute;
-    width: 100%;
-    top: 60px;
-    left: 0;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  
-    /* Start "hidden" and slide in downward */
-    transform: translateY(-20px);
-    opacity: 0;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-  }
-  
-  /* Each link in mobile menu */
-  .mobile-menu a {
-    padding: 10px;
-    text-decoration: none;
-    color: #00060e;
-    display: block;
-  }
-  
-  /* .active class triggers the animation in */
-  .mobile-menu.active {
-    display: flex;
-    transform: translateY(0);
-    opacity: 1;
+    color: #467fa1;
   }
   
   .menu-toggle {
-    display: none;
+    display: none; /* hidden by default, shown via media query */
     font-size: 24px;
     background: none;
     border: none;
     cursor: pointer;
-    color: #00060e;
+    color: #ffffff;
   }
   
-  /* Hide .nav-links on narrower screens, show .menu-toggle */
+  /* -----------------------------------------------------
+     MOBILE MENU (code-pen style)
+  ----------------------------------------------------- */
+  .mobile-menu {
+    display: none; 
+    /* 
+      We'll show/hide or transform with JS or media queries 
+      plus the .wrapper expansions 
+    */
+    background-color: #54295c;
+    padding: 10px;
+  }
+  
+  /* Each 'wrapper' from the code snippet */
+  .wrapper {
+    margin: 20px auto;
+    text-align: center;
+    transition: 0.15s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  .wrapper p.click-text {
+    display: block;
+    text-align: left;
+    padding: 0 12px 16px;
+    margin: 0;
+    cursor: pointer;
+    color: rgba(255,255,255,0.8);
+    position: relative;
+  }
+  .wrapper .arrow {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    position: relative;
+    bottom: -5px;
+    left: -10px;
+    transition: 0.4s ease;
+    margin-top: 2px;
+    transform: rotate(45deg);
+    float: right;
+  }
+  .wrapper .arrow:before,
+  .wrapper .arrow:after {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.4s ease;
+  }
+  .wrapper .arrow:after {
+    transform: rotate(90deg);
+    top: -5px;
+    left: 5px;
+  }
+  /* The hidden UL */
+  .wrapper ul {
+    padding: 0;
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.4s ease;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+  .wrapper ul li {
+    list-style: none;
+    padding: 8px 12px;
+    text-align: left;
+  }
+  .wrapper ul li a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  /* Active state from JS toggling */
+  .wrapper.active .arrow {
+    transform: rotate(45deg) translate(-5px,-5px);
+  }
+  .wrapper.active ul {
+    opacity: 0.9;
+    height: auto; /* let it expand to fit content */
+  }
+  
+  /* 
+    Example “wrapper2” / “wrapper3” specific styles 
+    from your snippet, but you can omit or adapt them 
+    if you want each wrapper to have distinct animations.
+  */
+  #wrapper2.active .arrow {
+    transform: rotate(45deg) translate(38px,38px);
+    opacity: 0.6;
+  }
+  #wrapper3 .arrow {
+    background-color: transparent;
+    width: 3px;
+    height: 10px;
+    border-bottom: 12px solid white;
+    transform: rotate(0);
+    left: 0;
+  }
+  #wrapper3.active .arrow {
+    transform: translate(0, -6px);
+  }
+  
+  /* -----------------------------------------------------
+     MEDIA QUERIES
+     Show the toggle button on smaller widths,
+     hide the desktop nav, show .mobile-menu
+  ----------------------------------------------------- */
   @media (max-width: 950px) {
     .nav-links {
-      display: none;
+      display: none; /* hide desktop nav */
     }
     .menu-toggle {
       display: inline-block;
     }
-    .header-center img {
-      width: 30px;
-      height: 30px;
+  
+    .mobile-menu {
+      display: block;
+      position: absolute;
+      width: 100%;
+      top: 60px; /* just below the header */
+      left: 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.5);
     }
   }
   
   /* -----------------------------------------------------
-     ABOUT SECTION
-     ----------------------------------------------------- */
-  .about-me {
-    margin: 40px auto;
+     LANDING / HERO SECTION
+  ----------------------------------------------------- */
+  .landing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 20px;
     max-width: 1200px;
-    padding: 0 20px;
+    margin: 0 auto;
   }
   
-  .banner {
+  .landing-text {
+    flex: 1;
+    max-width: 600px;
+  }
+  .intro-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: #467fa1;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .landing-text h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #ffffff; 
+    font-weight: 700;
+  }
+  .landing-text h1 span {
+    color: #5e0b0b; /* highlight color for the name */
+  }
+  .intro-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #467fa1;
+  }
+  
+  /* 
+     Landing image area 
+     (you can adjust its width, margin, etc. 
+     or stack it on mobile as needed)
+  */
+  .landing-image {
+    flex: 1;
     text-align: center;
-    margin-bottom: 20px;
   }
-  
-  .banner-img {
-    max-width: 100%;
+  .landing-image img {
+    max-width: 350px;
+    width: 100%;
     border-radius: 8px;
   }
   
-  .about-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    /* Perhaps use the teal or sky-blue for special color? */
-    color: #54c1e6;
-  }
-  
-  .about-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #fee801;
+  /* 
+     On small screens, place text and image 
+     stacked vertically 
+  */
+  @media (max-width: 800px) {
+    .landing {
+      flex-direction: column;
+      text-align: center;
+    }
+    .landing-text {
+      max-width: 100%;
+      margin-bottom: 30px;
+    }
   }
   
   /* -----------------------------------------------------
      PROJECTS SECTION
-     ----------------------------------------------------- */
+     Matching font size for h2 
+     (like “About Me” size earlier)
+  ----------------------------------------------------- */
   .projects {
-    margin: 40px auto;
     max-width: 1200px;
+    margin: 60px auto;
     padding: 0 20px;
   }
   
   .projects h2 {
-    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #54c1e6;
+    color: #ffffff; /* Stand out from background */
   }
   
   .project-grid {
@@ -270,64 +317,42 @@
     grid-gap: 20px;
   }
   
-  /* 
-     Increase image space (height) 
-     Decrease title & tech text
-  */
+  /* Example project cards */
   .project-card {
-    background: #00060e;
+    background: #1e0f1d; 
     border-radius: 12px;
-    overflow: hidden;
     text-align: center;
     padding: 20px;
-  
-    /* 3D transform & neon glow on hover:
-       1) Provide perspective from parent
-       2) We'll animate in .project-card:hover
-    */
-    perspective: 1000px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
   .project-image {
-    background-color: #9a9f17; /* or #39c4b6, #54c1e6, etc. */
-    height: 200px;  /* bigger than before */
+    background-color: #467fa1;
+    height: 150px;
     margin-bottom: 15px;
     border-radius: 8px;
   }
-  
-  /* Make titles / tech smaller */
   .project-title {
     margin: 10px 0 5px;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    color: #ffffff;
   }
-  
   .tech-used {
-    font-size: 0.8rem;
-    color: #54c1e6; 
+    font-size: 0.9rem;
+    color: #467fa1;
   }
   
-  /* 
-     COOL CARD HOVER:
-     - small 3D rotation
-     - scale slightly
-     - neon glow (box-shadow)
-  */
+  /* Hover effect for cards */
   .project-card:hover {
-    transform: scale(1.05) rotateY(5deg);
-    box-shadow: 0 0 10px 2px #39c4b6;
+    transform: scale(1.03);
+    box-shadow: 0 0 10px 2px #54295c;
   }
   
-  /* 
-     Make the project grid responsive 
-     on tablet or smaller:
-  */
+  /* Responsive project grid */
   @media (max-width: 992px) {
     .project-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
   @media (max-width: 600px) {
     .project-grid {
       grid-template-columns: 1fr;
