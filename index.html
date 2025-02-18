@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Om Patel - Portfolio</title>
 
-  <!-- Original CSS and JS links -->
+  <!-- Style & Script -->
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 
-  <!-- Original "Atkinson Hyperlegible Mono" font for header -->
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  
-  <!-- New cyberpunk-inspired font for body text -->
+  <!-- Fonts -->
+  <!-- 1) Old header font -->
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- 2) Body font (Orbitron) for a futuristic vibe -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
     <div class="header-left">
       <span class="name">Om Patel</span>
@@ -35,36 +36,39 @@
       </nav>
     </div>
   </header>
-  
+
+  <!-- MOBILE MENU -->
   <div class="mobile-menu">
     <a href="#">Projects</a>
     <a href="#">Resume</a>
     <a href="#">Contact</a>
   </div>
-  
-  <!-- Start of Main Content -->
+
+  <!-- MAIN CONTENT -->
   <main>
     
-    <!-- About/Banner Section -->
+    <!-- ABOUT/BANNER SECTION -->
     <section class="about-me">
       <div class="banner">
-        <!-- Replace with your own banner image path -->
+        <!-- Replace with your own banner image -->
         <img src="static/cyberpunk-banner.jpg" alt="Cyberpunk Banner" class="banner-img">
       </div>
       <div class="about-content">
         <h1>About Me</h1>
         <p>
-          <!-- Placeholder text -->
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dignissim neque sed sagittis tempor. Sed congue suscipit malesuada. Suspendisse ornare, magna quis ullamcorper sagittis, justo nisi fermentum nisi, vel imperdiet purus erat quis mauris.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dignissim neque sed sagittis tempor. 
+          Sed congue suscipit malesuada. Suspendisse ornare, magna quis ullamcorper sagittis, justo nisi fermentum nisi, 
+          vel imperdiet purus erat quis mauris.
         </p>
       </div>
     </section>
     
-    <!-- Projects Section -->
+    <!-- PROJECTS SECTION -->
     <section class="projects">
       <h2>Projects</h2>
       <div class="project-grid">
-        <!-- Example Project Cards -->
+        
+        <!-- Example Project Cards (12 total for 3 rows of 4) -->
         <div class="project-card">
           <div class="project-image"></div>
           <h3 class="project-title">Project 1</h3>
@@ -73,7 +77,7 @@
         <div class="project-card">
           <div class="project-image"></div>
           <h3 class="project-title">Project 2</h3>
-          <p class="tech-used">Tech Stack: React, Node.js, Express</p>
+          <p class="tech-used">Tech Stack: React, Node.js</p>
         </div>
         <div class="project-card">
           <div class="project-image"></div>
@@ -85,7 +89,7 @@
           <h3 class="project-title">Project 4</h3>
           <p class="tech-used">Tech Stack: C++, Unreal Engine</p>
         </div>
-        
+
         <div class="project-card">
           <div class="project-image"></div>
           <h3 class="project-title">Project 5</h3>
@@ -99,14 +103,14 @@
         <div class="project-card">
           <div class="project-image"></div>
           <h3 class="project-title">Project 7</h3>
-          <p class="tech-used">Tech Stack: TypeScript, Angular</p>
+          <p class="tech-used">Tech Stack: Angular, TypeScript</p>
         </div>
         <div class="project-card">
           <div class="project-image"></div>
           <h3 class="project-title">Project 8</h3>
           <p class="tech-used">Tech Stack: Swift, iOS</p>
         </div>
-        
+
         <div class="project-card">
           <div class="project-image"></div>
           <h3 class="project-title">Project 9</h3>
@@ -127,11 +131,11 @@
           <h3 class="project-title">Project 12</h3>
           <p class="tech-used">Tech Stack: Vue.js, Firebase</p>
         </div>
+        
       </div>
     </section>
-    
-  </main>
-  <!-- End of Main Content -->
 
+  </main>
+  
 </body>
 </html>

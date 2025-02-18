@@ -1,250 +1,336 @@
-/* ---------------------------------------------
-   Existing import for your header font
---------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;700&display=swap');
+/* -----------------------------------------------------
+   FONT IMPORTS & GLOBALS
+   ----------------------------------------------------- */
+/* Keep existing header font import:
+   @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap'); */
 
-/* 
-   New import for the main body if needed,
-   e.g., Orbitron, though you already have it in <head>. 
-   If you prefer to import here, uncomment:
-   
-   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); 
+/* If you prefer to import Orbitron here, you could:
+   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 */
 
-/* 
-   Override the body font to Orbitron (or your preferred 
-   cyberpunk style) and set a dark background 
-*/
-body {
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background: #0d001a; /* Deep purple-ish background */
-  color: #ffffff;      /* White text for contrast */
-}
-
-/* ---------------------------------------------
-   HEADER STYLES
-   Keep them as is, but ensure they use the old font
---------------------------------------------- */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 20px;
-  background: #1e0033; /* Darker background for the header */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
-  font-family: 'Atkinson Hyperlegible Mono', monospace; /* Force old font here */
-}
-
-.header-left {
-  flex: 1;
-  text-align: left;
-  font-size: 22px;
-  font-weight: 700;
-  color: #ffffff; 
-}
-
-.header-center {
-  flex: 1;
-  text-align: center;
-}
-
-.header-center img {
-  width: 40px;
-  height: 40px;
-}
-
-.header-right {
-  flex: 1;
-  text-align: right;
-}
-
-.nav-links {
-  display: inline-flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-links li {
-  margin: 0 15px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #ff65bd; /* Neon pink accent */
-  font-weight: 500;
-}
-
-/* ---------------------------------------------
-   MOBILE MENU
---------------------------------------------- */
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  background: #1e0033;
-  position: absolute;
-  width: 100%;
-  top: 60px;
-  left: 0;
-  padding: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-}
-
-.mobile-menu a {
-  padding: 10px;
-  text-decoration: none;
-  color: #ff65bd;
-  display: block;
-}
-
-.mobile-menu.active {
-  display: flex;
-  max-height: 300px; /* increased for more links if needed */
-  opacity: 1;
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #ff65bd; 
-}
-
-@media (max-width: 950px) {
-  .nav-links {
-    display: none;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-  .menu-toggle {
-    display: inline-block;
+  
+  /* -----------------------------------------------------
+     BODY & COLORS
+     -----------------------------------------------------
+     Using your color palette:
+  
+     #00060e (dark background)
+     #9a9f17 (muted neon green)
+     #fee801 (bright neon yellow)
+     #54c1e6 (neon sky blue)
+     #39c4b6 (teal)
+  */
+  body {
+    background-color: #00060e;
+    font-family: 'Orbitron', sans-serif; /* For main body text */
+    color: #fee801; /* bright neon yellow for default text color */
+    margin: 0;
   }
+  
+  /* -----------------------------------------------------
+     HEADER
+     -----------------------------------------------------
+     Use 'Atkinson Hyperlegible Mono' only for the header.
+     Different background (#9a9f17).
+  */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: #9a9f17;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  
+    font-family: 'Atkinson Hyperlegible Mono', monospace; /* override body font */
+    color: #fee801;
+  }
+  
+  .header-left {
+    flex: 1;
+    text-align: left;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  
+  .header-center {
+    flex: 1;
+    text-align: center;
+  }
+  
   .header-center img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
-}
-
-/* ---------------------------------------------
-   ABOUT SECTION
---------------------------------------------- */
-.about-me {
-  margin: 40px auto;
-  max-width: 1200px;
-  padding: 0 20px;
-}
-
-.banner {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.banner-img {
-  max-width: 100%;
-  border-radius: 8px;
-}
-
-.about-content h1 {
-  font-size: 2.5rem;
-  color: #ff65bd;
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 2px #ff65bd;
-}
-
-.about-content p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* ---------------------------------------------
-   PROJECTS SECTION
---------------------------------------------- */
-.projects {
-  margin: 40px auto;
-  max-width: 1200px;
-  padding: 0 20px;
-}
-
-.projects h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #ff65bd;
-  text-shadow: 1px 1px 2px #ff65bd;
-}
-
-/* 
-   Use CSS Grid to achieve 4 columns, 3 rows 
-   if the screen is wide enough 
-*/
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-}
-
-.project-card {
-  background: #2a0050;
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: center;
-  padding: 20px;
-  transition: transform 0.3s ease;
-  /* Start with a slight neon glow on the border or shadow */
-  box-shadow: 0 0 5px #ff65bd;
-}
-
-/* The placeholder “project-image” area could hold an actual image: */
-.project-image {
-  background-color: #360063; 
-  height: 100px; 
-  margin-bottom: 15px;
-  border-radius: 8px;
-}
-
-.project-title {
-  margin: 10px 0 5px;
-  font-size: 1.2rem;
-  color: #ffffff;
-}
-
-.tech-used {
-  font-size: 0.9rem;
-  color: #d1d1d1;
-}
-
-/* 
-   Hover effect: enlarge the card and pulse. 
-   The pulse animation can add a neon glow that brightens/dims 
-*/
-.project-card:hover {
-  transform: scale(1.05);
-  animation: pulse 1.5s infinite alternate;
-}
-
-/* Keyframes for the pulsing glow */
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 5px #ff65bd;
+  
+  .header-right {
+    flex: 1;
+    text-align: right;
   }
-  100% {
-    box-shadow: 0 0 20px #ff65bd;
+  
+  /* -----------------------------------------------------
+     NAV LINKS - fancy hover effect
+     -----------------------------------------------------
+     Incorporating the snippet style you mentioned 
+     (with modifications to match our palette).
+  */
+  .nav-links {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
   }
-}
-
-/* Make the project grid responsive */
-@media (max-width: 992px) {
+  
+  .nav-links li {
+    margin: 0 15px;
+    list-style: none;
+    position: relative;
+  }
+  
+  /* 
+     We'll replicate your posted snippet:
+     - Using :before and :after for the border / background
+     - Transition: color / background
+  */
+  .nav-links li a {
+    position: relative;
+    display: block;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #00060e;        /* use the dark background color for text to stand out against header */
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.5s;
+    z-index: 1;
+  }
+  
+  /* top and bottom border lines on hover */
+  .nav-links li a:before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid #00060e;
+    border-bottom: 2px solid #00060e;
+    transform: scaleY(2);
+    opacity: 0;
+    transition: 0.3s;
+  }
+  
+  .nav-links li a:after {
+    content: '';
+    position: absolute;
+    top: 2px;  /* keep in sync with border thickness above */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00060e;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: 0.3s;
+    z-index: -1;
+  }
+  
+  /* 
+     On hover:
+     - text color = #fee801 (bright neon yellow)
+     - make before/after visible
+  */
+  .nav-links li a:hover {
+    color: #fee801;
+  }
+  
+  .nav-links li a:hover:before {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  
+  .nav-links li a:hover:after {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  
+  /* -----------------------------------------------------
+     MOBILE MENU
+     -----------------------------------------------------
+     Animate dropdown: transform + opacity
+  */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #9a9f17;
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  
+    /* Start "hidden" and slide in downward */
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  
+  /* Each link in mobile menu */
+  .mobile-menu a {
+    padding: 10px;
+    text-decoration: none;
+    color: #00060e;
+    display: block;
+  }
+  
+  /* .active class triggers the animation in */
+  .mobile-menu.active {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #00060e;
+  }
+  
+  /* Hide .nav-links on narrower screens, show .menu-toggle */
+  @media (max-width: 950px) {
+    .nav-links {
+      display: none;
+    }
+    .menu-toggle {
+      display: inline-block;
+    }
+    .header-center img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+  /* -----------------------------------------------------
+     ABOUT SECTION
+     ----------------------------------------------------- */
+  .about-me {
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  .banner {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .banner-img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .about-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    /* Perhaps use the teal or sky-blue for special color? */
+    color: #54c1e6;
+  }
+  
+  .about-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #fee801;
+  }
+  
+  /* -----------------------------------------------------
+     PROJECTS SECTION
+     ----------------------------------------------------- */
+  .projects {
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  .projects h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #54c1e6;
+  }
+  
   .project-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
   }
-}
-
-@media (max-width: 600px) {
-  .project-grid {
-    grid-template-columns: 1fr; /* single column on very narrow screens */
+  
+  /* 
+     Increase image space (height) 
+     Decrease title & tech text
+  */
+  .project-card {
+    background: #00060e;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+  
+    /* 3D transform & neon glow on hover:
+       1) Provide perspective from parent
+       2) We'll animate in .project-card:hover
+    */
+    perspective: 1000px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-}
+  
+  .project-image {
+    background-color: #9a9f17; /* or #39c4b6, #54c1e6, etc. */
+    height: 200px;  /* bigger than before */
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+  
+  /* Make titles / tech smaller */
+  .project-title {
+    margin: 10px 0 5px;
+    font-size: 1rem;
+  }
+  
+  .tech-used {
+    font-size: 0.8rem;
+    color: #54c1e6; 
+  }
+  
+  /* 
+     COOL CARD HOVER:
+     - small 3D rotation
+     - scale slightly
+     - neon glow (box-shadow)
+  */
+  .project-card:hover {
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 0 10px 2px #39c4b6;
+  }
+  
+  /* 
+     Make the project grid responsive 
+     on tablet or smaller:
+  */
+  @media (max-width: 992px) {
+    .project-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
