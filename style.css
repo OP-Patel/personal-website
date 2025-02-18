@@ -1,115 +1,250 @@
+/* ---------------------------------------------
+   Existing import for your header font
+--------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;700&display=swap');
 
-.atkinson-hyperlegible-mono {
-  font-family: "Atkinson Hyperlegible Mono", serif;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
-}
+/* 
+   New import for the main body if needed,
+   e.g., Orbitron, though you already have it in <head>. 
+   If you prefer to import here, uncomment:
+   
+   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); 
+*/
 
+/* 
+   Override the body font to Orbitron (or your preferred 
+   cyberpunk style) and set a dark background 
+*/
 body {
   margin: 0;
-  font-family: 'Atkinson Hyperlegible Mono', monospace;
-  background: #f4f4f4;
+  font-family: 'Orbitron', sans-serif;
+  background: #0d001a; /* Deep purple-ish background */
+  color: #ffffff;      /* White text for contrast */
 }
 
-/* Header container */
+/* ---------------------------------------------
+   HEADER STYLES
+   Keep them as is, but ensure they use the old font
+--------------------------------------------- */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 20px;
-  background: #fff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background: #1e0033; /* Darker background for the header */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+  font-family: 'Atkinson Hyperlegible Mono', monospace; /* Force old font here */
 }
 
-/* Left section: Name */
 .header-left {
   flex: 1;
   text-align: left;
   font-size: 22px;
   font-weight: 700;
+  color: #ffffff; 
 }
 
-/* Center section: Transistor icon */
 .header-center {
   flex: 1;
   text-align: center;
 }
+
 .header-center img {
-  width: 40px;  /* Enlarged image width */
-  height: 40px; /* Enlarged image height */
+  width: 40px;
+  height: 40px;
 }
 
-/* Right section: Navigation */
 .header-right {
   flex: 1;
   text-align: right;
 }
+
 .nav-links {
   display: inline-flex;
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .nav-links li {
   margin: 0 15px;
 }
+
 .nav-links a {
   text-decoration: none;
-  color: #333;
+  color: #ff65bd; /* Neon pink accent */
   font-weight: 500;
 }
 
-/* Mobile menu styles */
+/* ---------------------------------------------
+   MOBILE MENU
+--------------------------------------------- */
 .mobile-menu {
   display: none;
   flex-direction: column;
-  background: #fff;
+  background: #1e0033;
   position: absolute;
   width: 100%;
   top: 60px;
   left: 0;
   padding: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, opacity 0.4s ease;
 }
+
 .mobile-menu a {
   padding: 10px;
   text-decoration: none;
-  color: #333;
+  color: #ff65bd;
   display: block;
 }
+
 .mobile-menu.active {
   display: flex;
-  max-height: 200px; /* Adjust as needed */
+  max-height: 300px; /* increased for more links if needed */
   opacity: 1;
 }
 
-/* Hide menu toggle on desktop */
 .menu-toggle {
   display: none;
   font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
+  color: #ff65bd; 
 }
 
-/* Responsive adjustments */
 @media (max-width: 950px) {
-    /* Do not hide the header-center so that the transistor image remains visible */
-    /* Hide desktop nav links, show toggle */
-    .nav-links {
-      display: none;
-    }
-    .menu-toggle {
-      display: inline-block;
-    }
-    .header-center img {
-      width: 30px;  /* Reduced image width */
-      height: 30px; /* Reduced image height */
-    }
+  .nav-links {
+    display: none;
   }
+  .menu-toggle {
+    display: inline-block;
+  }
+  .header-center img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* ---------------------------------------------
+   ABOUT SECTION
+--------------------------------------------- */
+.about-me {
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.banner {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.banner-img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.about-content h1 {
+  font-size: 2.5rem;
+  color: #ff65bd;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px #ff65bd;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ---------------------------------------------
+   PROJECTS SECTION
+--------------------------------------------- */
+.projects {
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.projects h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff65bd;
+  text-shadow: 1px 1px 2px #ff65bd;
+}
+
+/* 
+   Use CSS Grid to achieve 4 columns, 3 rows 
+   if the screen is wide enough 
+*/
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.project-card {
+  background: #2a0050;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  /* Start with a slight neon glow on the border or shadow */
+  box-shadow: 0 0 5px #ff65bd;
+}
+
+/* The placeholder “project-image” area could hold an actual image: */
+.project-image {
+  background-color: #360063; 
+  height: 100px; 
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.project-title {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.tech-used {
+  font-size: 0.9rem;
+  color: #d1d1d1;
+}
+
+/* 
+   Hover effect: enlarge the card and pulse. 
+   The pulse animation can add a neon glow that brightens/dims 
+*/
+.project-card:hover {
+  transform: scale(1.05);
+  animation: pulse 1.5s infinite alternate;
+}
+
+/* Keyframes for the pulsing glow */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 5px #ff65bd;
+  }
+  100% {
+    box-shadow: 0 0 20px #ff65bd;
+  }
+}
+
+/* Make the project grid responsive */
+@media (max-width: 992px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr; /* single column on very narrow screens */
+  }
+}
