@@ -7,7 +7,8 @@
     box-sizing: border-box;
   }
   
-  /* Using:
+  /* 
+     Color palette:
      #467fa1,
      #54295c,
      #061f2b,
@@ -21,7 +22,7 @@
     margin: 0;
   }
   
-  /* Large headings in Poppins */
+  /* Poppins for big headings */
   h1, h2, h3, .name {
     font-family: 'Poppins', sans-serif;
   }
@@ -37,7 +38,6 @@
     background: #54295c;  /* deep purple tone */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
   }
-  
   .header-left {
     flex: 1;
     text-align: left;
@@ -47,7 +47,6 @@
     color: #ffffff;
     font-weight: 700;
   }
-  
   .header-center {
     flex: 1;
     text-align: center;
@@ -56,17 +55,12 @@
     width: 40px;
     height: 40px;
   }
-  
   .header-right {
     flex: 1;
     text-align: right;
   }
   
-  /* 
-     Desktop Nav
-     We’ll keep it simpler, just a horizontal list
-     with a subtle hover effect. 
-  */
+  /* Desktop nav links */
   .nav-links {
     list-style: none;
     display: inline-flex;
@@ -74,21 +68,22 @@
     padding: 0;
     margin: 0;
   }
-  
+  .nav-links li {
+    list-style: none;
+  }
   .nav-links li a {
     text-decoration: none;
     color: #ffffff;
     font-weight: 600;
-    position: relative;
     transition: 0.3s ease;
   }
-  
   .nav-links li a:hover {
     color: #467fa1;
   }
   
+  /* Hamburger icon (shown on mobile) */
   .menu-toggle {
-    display: none; /* hidden by default, shown via media query */
+    display: none; 
     font-size: 24px;
     background: none;
     border: none;
@@ -97,130 +92,36 @@
   }
   
   /* -----------------------------------------------------
-     MOBILE MENU (code-pen style)
+     MOBILE MENU (Simplified, no animations)
   ----------------------------------------------------- */
   .mobile-menu {
-    display: none; 
-    /* 
-      We'll show/hide or transform with JS or media queries 
-      plus the .wrapper expansions 
-    */
+    display: none;
     background-color: #54295c;
-    padding: 10px;
+    padding: 15px;
   }
   
-  /* Each 'wrapper' from the code snippet */
-  .wrapper {
-    margin: 20px auto;
-    text-align: center;
-    transition: 0.15s ease;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-  }
-  .wrapper p.click-text {
-    display: block;
-    text-align: left;
-    padding: 0 12px 16px;
-    margin: 0;
-    cursor: pointer;
-    color: rgba(255,255,255,0.8);
-    position: relative;
-  }
-  .wrapper .arrow {
-    width: 13px;
-    height: 13px;
-    display: inline-block;
-    position: relative;
-    bottom: -5px;
-    left: -10px;
-    transition: 0.4s ease;
-    margin-top: 2px;
-    transform: rotate(45deg);
-    float: right;
-  }
-  .wrapper .arrow:before,
-  .wrapper .arrow:after {
-    position: absolute;
-    content: '';
-    display: inline-block;
-    width: 12px;
-    height: 3px;
-    background-color: #fff;
-    transition: 0.4s ease;
-  }
-  .wrapper .arrow:after {
-    transform: rotate(90deg);
-    top: -5px;
-    left: 5px;
-  }
-  /* The hidden UL */
-  .wrapper ul {
-    padding: 0;
-    margin: 0;
-    height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: 0.4s ease;
-    border-top: 1px solid rgba(255,255,255,0.2);
-  }
-  .wrapper ul li {
+  /* Just a simple vertical list */
+  .mobile-menu ul {
     list-style: none;
-    padding: 8px 12px;
-    text-align: left;
   }
-  .wrapper ul li a {
-    color: #ffffff;
+  .mobile-menu ul li a {
+    display: block;
     text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 0;
   }
-  /* Active state from JS toggling */
-  .wrapper.active .arrow {
-    transform: rotate(45deg) translate(-5px,-5px);
-  }
-  .wrapper.active ul {
-    opacity: 0.9;
-    height: auto; /* let it expand to fit content */
+  .mobile-menu ul li a:hover {
+    color: #467fa1;
   }
   
-  /* 
-    Example “wrapper2” / “wrapper3” specific styles 
-    from your snippet, but you can omit or adapt them 
-    if you want each wrapper to have distinct animations.
-  */
-  #wrapper2.active .arrow {
-    transform: rotate(45deg) translate(38px,38px);
-    opacity: 0.6;
-  }
-  #wrapper3 .arrow {
-    background-color: transparent;
-    width: 3px;
-    height: 10px;
-    border-bottom: 12px solid white;
-    transform: rotate(0);
-    left: 0;
-  }
-  #wrapper3.active .arrow {
-    transform: translate(0, -6px);
-  }
-  
-  /* -----------------------------------------------------
-     MEDIA QUERIES
-     Show the toggle button on smaller widths,
-     hide the desktop nav, show .mobile-menu
-  ----------------------------------------------------- */
+  /* Show .mobile-menu on smaller screens, hide desktop nav */
   @media (max-width: 950px) {
     .nav-links {
-      display: none; /* hide desktop nav */
+      display: none;
     }
     .menu-toggle {
       display: inline-block;
-    }
-  
-    .mobile-menu {
-      display: block;
-      position: absolute;
-      width: 100%;
-      top: 60px; /* just below the header */
-      left: 0;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.5);
     }
   }
   
@@ -235,7 +136,6 @@
     max-width: 1200px;
     margin: 0 auto;
   }
-  
   .landing-text {
     flex: 1;
     max-width: 600px;
@@ -262,12 +162,6 @@
     line-height: 1.6;
     color: #467fa1;
   }
-  
-  /* 
-     Landing image area 
-     (you can adjust its width, margin, etc. 
-     or stack it on mobile as needed)
-  */
   .landing-image {
     flex: 1;
     text-align: center;
@@ -278,10 +172,7 @@
     border-radius: 8px;
   }
   
-  /* 
-     On small screens, place text and image 
-     stacked vertically 
-  */
+  /* Responsive landing section */
   @media (max-width: 800px) {
     .landing {
       flex-direction: column;
@@ -295,29 +186,22 @@
   
   /* -----------------------------------------------------
      PROJECTS SECTION
-     Matching font size for h2 
-     (like “About Me” size earlier)
   ----------------------------------------------------- */
   .projects {
     max-width: 1200px;
     margin: 60px auto;
     padding: 0 20px;
   }
-  
   .projects h2 {
-    font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #ffffff; /* Stand out from background */
+    color: #ffffff;
   }
-  
   .project-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
   }
-  
-  /* Example project cards */
   .project-card {
     background: #1e0f1d; 
     border-radius: 12px;
@@ -340,8 +224,6 @@
     font-size: 0.9rem;
     color: #467fa1;
   }
-  
-  /* Hover effect for cards */
   .project-card:hover {
     transform: scale(1.03);
     box-shadow: 0 0 10px 2px #54295c;
@@ -356,6 +238,58 @@
   @media (max-width: 600px) {
     .project-grid {
       grid-template-columns: 1fr;
+    }
+  }
+
+  /* Ticker Section Wrapper */
+.ticker-section {
+    background-color: #061f2b; /* or any color you like */
+    padding: 10px 0;
+    /* optional: add margin if you'd like space above/below */
+  }
+  
+  /* So the ticker stands out; adjust colors as you see fit */
+  .ticker-container {
+    width: 100%;
+    overflow: hidden;        /* hide text as it scrolls offscreen */
+    position: relative;
+    background-color: #54295c; /* or any color from your palette */
+    color: #fff;
+    /* optional styling, e.g., text alignment or padding: */
+    text-align: center;
+    padding: 5px 0;
+  }
+  
+  /* The container for the scrolling text */
+  .ticker-wrap {
+    white-space: nowrap; /* ensure text stays on one line */
+    display: inline-block; 
+  }
+  
+  /* The moving element: sets how quickly it scrolls 
+     and from which side it starts.
+  */
+  .ticker-move {
+    display: inline-block;
+    /* push the text fully off-screen on the right at start */
+    padding-left: 120%; 
+    animation: ticker-scroll 11s linear infinite;
+  }
+  
+  /* Each "item" can have its own spacing. */
+  .ticker-item {
+    display: inline-block;
+    margin-right: 2rem; /* space between items */
+    font-weight: 600;   /* stand out, or adjust to your preference */
+  }
+  
+  /* The keyframes define the leftward movement */
+  @keyframes ticker-scroll {
+    0% {
+      transform: translateX(20%);
+    }
+    100% {
+      transform: translateX(-150%);
     }
   }
   

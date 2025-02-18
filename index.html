@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Om Patel - Portfolio</title>
+  <title>Om Patel - Engineering Portfolio</title>
 
   <!-- Link to external CSS and JS -->
   <link rel="stylesheet" href="style.css"/>
   <script defer src="script.js"></script>
 
-  <!-- Example fonts: Poppins (for big headings) + Source Sans Pro -->
+  <!-- Example fonts: Poppins (for headings) + Source Sans Pro -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Source+Sans+Pro:wght@400;600&display=swap"
     rel="stylesheet"
@@ -19,81 +19,48 @@
 
   <!-- HEADER -->
   <header>
-    <!-- Left side: site name or logo -->
+    <!-- Left side: site name -->
     <div class="header-left">
       <span class="name">Om Patel</span>
     </div>
 
-    <!-- Center: Lightning bolt icon (instead of transistor) -->
+    <!-- Center: Lightning bolt icon -->
     <div class="header-center">
-      <img src="static/lightning-bolt.png" alt="Lightning Bolt Icon" />
+      <!-- Replace with your lightning bolt icon path -->
+      <img src="static/test.png" alt="test icon" />
     </div>
 
-    <!-- Right side: Nav links on desktop -->
+    <!-- Right side: Nav (desktop) + hamburger (mobile) -->
     <div class="header-right">
       <nav>
+        <!-- Desktop nav links -->
         <ul class="nav-links">
           <li><a href="#">Projects</a></li>
           <li><a href="#">Resume</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
+        <!-- Hamburger button -->
         <button class="menu-toggle">&#9776;</button>
       </nav>
     </div>
   </header>
 
-  <!-- 
-    MOBILE MENU
-    Instead of the old simple slide-down, we’ll use a
-    code-pen-inspired approach with multiple "wrappers."
-  -->
+  <!-- MOBILE DROPDOWN (no animation) -->
   <div class="mobile-menu">
-    <!-- Wrapper #1 -->
-    <div class="wrapper" id="wrapper">
-      <p class="click-text">
-        Projects <span class="arrow"></span>
-      </p>
-      <ul>
-        <li><a href="#">Project 1</a></li>
-        <li><a href="#">Project 2</a></li>
-        <li><a href="#">Project 3</a></li>
-      </ul>
-    </div>
-
-    <!-- Wrapper #2 -->
-    <div class="wrapper" id="wrapper2">
-      <p class="click-text">
-        Resume <span class="arrow"></span>
-      </p>
-      <ul>
-        <li><a href="#">Download Resume</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">GitHub</a></li>
-      </ul>
-    </div>
-
-    <!-- Wrapper #3 -->
-    <div class="wrapper" id="wrapper3">
-      <p class="click-text">
-        Contact <span class="arrow"></span>
-      </p>
-      <ul>
-        <li><a href="#">Email Me</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Other</a></li>
-      </ul>
-    </div>
+    <ul>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Resume</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
   </div>
-  <!-- End Mobile Menu -->
 
-  <!-- MAIN / LANDING SECTION (Hero-like) -->
+  <!-- MAIN / LANDING SECTION -->
   <main>
     <section class="landing">
       <div class="landing-text">
         <p class="intro-subtitle">WELCOME TO MY WORLD</p>
         <h1>
-          Hi, I’m <span>Om Patel</span><br/>
-          a Developer.
+          Hi, I’m <span>Om Patel</span>,<br/> an ECE Engineer.
         </h1>
         <p class="intro-description">
           I use animation as a third dimension by which to simplify experiences 
@@ -103,9 +70,22 @@
       </div>
       <div class="landing-image">
         <!-- Replace with your own photo -->
-        <img src="static/profile-placeholder.png" alt="Om Patel Photo" />
+        <img src="static/ompic.jpg" alt="Om Patel Photo" />
       </div>
     </section>
+    
+    <!-- TICKER SECTION -->
+    <section class="ticker-section">
+        <div class="ticker-container">
+          <div class="ticker-wrap">
+            <div class="ticker-move">
+              <!-- Replace these examples with any text you want to loop -->
+            
+            </div>
+          </div>
+        </div>
+      </section>
+
 
     <!-- PROJECTS SECTION -->
     <section class="projects">
